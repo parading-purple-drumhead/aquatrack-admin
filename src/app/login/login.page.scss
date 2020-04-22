@@ -1,5 +1,7 @@
+
+
 #logo{
-    background: #3880ff;
+    // background: #3880ff;
     justify-content: center;
     flex-grow: 0.4;
     flex-shrink: 0;
@@ -7,7 +9,7 @@
 }
 
 #loginForm{
-    background: #ffffff;
+    // background: #ffffff;
     flex-grow: 0.6;
     justify-content: center;
     flex-shrink: 0;
@@ -30,12 +32,24 @@
     background: #ffffff;
 }
 
+#heading{
+
+    font-size: 36px;
+    font-family: Gibson;
+    font-weight: 600;
+    text-align: center;
+    color: #ffffff;
+    margin-top:127px;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
 
 
 
 
 ion-grid{
-    background-color: #3880ff; 
+    background-image: linear-gradient(#36D1DC, #5B86E5); 
     height: 100%;
     width: 100%;
     display: flex; 
@@ -49,8 +63,31 @@ ion-row{
 }
 
 ion-button{
-    height: 50px;
-    font-size: 15px;
-    border-radius: 10px;
+    width: 330px;
+    height: 46px;
+    --border-radius: 23px !important;
+    display: block;
+    margin: auto;
+    --background:white;
+    --color:#4ba8f5;
+    box-shadow:  rgba(90, 120, 181, 0.4) ;
+
 }
+
+ion-input{
+ 
+    background-color: #ffffff;
+    width:325px;
+    padding-left: 15px !important;
+}
+
+ion-card{
+   width:325px;
+  
+    border-radius: 10px;
+    box-shadow: 15px 15px 10px 0 rgba(90, 120, 181, 0.4);
+    background-color: #ffffff;
+}
+
+
 

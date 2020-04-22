@@ -34,7 +34,7 @@ export class RegisterPage implements OnInit {
     });
   }
 
-  ngOnInit() { }
+  ngOnInit() { } 
 
   loginForm: FormGroup;
 

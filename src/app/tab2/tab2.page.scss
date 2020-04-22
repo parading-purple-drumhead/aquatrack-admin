@@ -3,10 +3,35 @@ ion-button{
     float: right;
 }
 
+ion-icon{
+    height: 25px !important;
+    width: 30px !important;
+  }
+  
+
 ion-fab-button{
     font-size: 40px;
-}
 
+}
+ion-toolbar{
+    --background:#f5f6f8;
+    }
+    ion-grid{
+       
+        background:#f5f6f8;
+      } 
+    
+    
+    ion-title{
+      color:  #5b86e5;
+      font-family: Gibson;
+      font-size: 26px;
+      font-weight: 600;
+    }
+    
+    ion-buttons{
+      color:#4c5264;
+    }
 ion-icon{
     font-size: 30px;
     float: right;
@@ -31,7 +56,7 @@ ion-card{
 ion-col{
     padding-left: 0px;
     padding-right: 0px;
-}
+} 
 
 #emptyPage{
     justify-content: center;

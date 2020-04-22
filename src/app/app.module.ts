@@ -18,6 +18,8 @@ import { FCM } from '@ionic-native/fcm/ngx';
 import { CompformPage } from './tab2/compform/compform.page';
 
 
+
+
 @NgModule({
   declarations: [AppComponent,CompareValidatorDirective,CompformPage],
   entryComponents: [CompformPage],

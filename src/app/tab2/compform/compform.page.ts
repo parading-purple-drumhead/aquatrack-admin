@@ -7,7 +7,7 @@ import { Storage } from '@ionic/storage';
 
 
 @Component({
-  selector: 'app-compform',
+  selector: 'app-compform', 
   templateUrl: './compform.page.html',
   styleUrls: ['./compform.page.scss'],
 })

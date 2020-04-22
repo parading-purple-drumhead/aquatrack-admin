@@ -32,12 +32,13 @@ export class LoginPage implements OnInit {
       else {
         this.isLoading = false;
       }
-    });
+    }); 
   }
 
   goToNextPage() {
     this.router.navigate(['/register']);
   }
+ 
 
   goToBuildPage(x) {
     const Username = x;

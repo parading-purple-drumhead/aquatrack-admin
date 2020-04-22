@@ -6,7 +6,7 @@
     <ion-title>Floor {{this.getFloor}}</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="openPopOver($event)">
-        <ion-icon name="more"></ion-icon>
+        <ion-icon name="menu"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -25,15 +25,15 @@
       <ion-item>
         <ion-label>From</ion-label>
         <ion-datetime min="1990" max="2099"
-          [dayShortNames]="customDayShortNames"
+          dayShortNames="customDayShortNames"
           displayFormat="HH:mm, DD MMM, YY"
           monthShortNames="Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"
           [(ngModel)] = "manfrom"></ion-datetime>
       </ion-item>
       <ion-item>
-        <ion-label>To</ion-label>
+        <ion-label>To</ion-label> 
         <ion-datetime min="1990" max="2099"
-          [dayShortNames]="customDayShortNames"
+          dayShortNames="customDayShortNames"
           displayFormat="HH:mm, DD MMM, YY"
           monthShortNames="Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"
           [(ngModel)] = "manto"></ion-datetime>
@@ -42,7 +42,29 @@
       <ion-button (click)="toggle()">Submit</ion-button>
     </ion-card-content>
   </ion-card>
-  <ion-list *ngFor="let i of arrayData">
+  <ion-grid>
+    <div *ngFor="let i of arrayData">
+      <ion-card id="card1" (click)="openTaps(i.Building,i.Floor)">
+        <ion-card-content id="card-content">
+          <ion-row>
+            <ion-col id="col1" size="4">
+              <div id="img-container">
+              <ion-img src="../../assets/tap.jpg"></ion-img></div>
+
+            </ion-col>
+            <ion-col size="4">
+              Tap {{i.tap_id}}
+            </ion-col>
+            <ion-col size="4"  style="text-align: end;">
+              {{i.total.toFixed(2)}} L
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+      <br>
+    </div>
+  </ion-grid>
+  <!-- <ion-list *ngFor="let i of arrayData">
    <ion-item><ion-col>Tap {{i.tap_id}}</ion-col><ion-col>{{i.total.toFixed(2)}} Litres</ion-col></ion-item>
-  </ion-list>
+  </ion-list> -->
 </ion-content>

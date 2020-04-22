@@ -5,6 +5,7 @@ import { NavController, AlertController, PopoverController, ModalController } fr
 import { Storage } from '@ionic/storage';
 import { AppPopOverComponent } from '../app-pop-over/app-pop-over.component';
 import { CompformPage } from './compform/compform.page';
+import { FCM } from '@ionic-native/fcm/ngx';
 
 @Component({
   selector: 'app-tab2',
@@ -15,7 +16,7 @@ export class Tab2Page implements OnInit {
 
   toggleStatus: boolean;
 
-  constructor(private http: HttpClient, private router: Router, public navCtrl: NavController, public activeRoute: ActivatedRoute,
+  constructor(private fcm: FCM,private http: HttpClient, private router: Router, public navCtrl: NavController, public activeRoute: ActivatedRoute,
     private storage: Storage, private alert: AlertController, private popover: PopoverController, private modal: ModalController) {
     this.building = "All";
   }
@@ -265,11 +266,20 @@ export class Tab2Page implements OnInit {
       const notif = {
         username
       }
+      
       this.http.post('http://ec2-15-206-171-244.ap-south-1.compute.amazonaws.com:80/Notification', notif, { responseType: 'text' }).subscribe(
         rdata => {
           console.log(rdata);
         }
+        
       );
+      this.fcm.onNotification().subscribe(data => {
+        if(data.wasTapped){
+          this.router.navigate(['/tab2']);
+        } else {
+          console.log("Received in foreground");
+        };
+      });
     });
   }
 

@@ -1,24 +1,47 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar mode="ios">
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>Forgot Password</ion-title>
-  </ion-toolbar>
-</ion-header>
+  </ion-toolbar> 
+</ion-header> -->
 
 <ion-content>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>
-        Type your Email
-      </ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <form #form="ngForm" (ngSubmit)="forgotPassword(form)" >
-      <ion-input type="text" placeholder="Enter email" expand="block" name="email" ngModel></ion-input>
-      <ion-button type="submit">Proceed</ion-button>
-      </form>
-    </ion-card-content>
-  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-label id="heading">Forgot Password</ion-label>
+          
+         </ion-row> 
+         
+         <ion-row>
+          <ion-text id="content">Enter your College email address and we will email you the OPT to reset your password</ion-text>
+              
+             </ion-row> 
+
+             <ion-row id="loginForm">
+              <form #form="ngForm" (ngSubmit)="forgotPassword(form)">
+                <br> 
+                <ion-card>
+                <ion-item>
+                  <!-- <ion-label position="floating">Username:</ion-label> -->
+                  <ion-icon name="mail"></ion-icon>
+                  <ion-input type="text" placeholder="Enter email"  name="email" ngModel></ion-input>
+                  
+                </ion-item>
+
+              </ion-card>
+                <br><br>
+                <div>
+                  <ion-button  type="submit">
+                    Send OTP</ion-button>
+                  <br>
+                  <!-- <ion-button expand="block" color="primary" (click)="goToNextPage()">Register</ion-button> -->
+                </div>
+ 
+        
+              </form>
+            </ion-row>
+
+</ion-grid>
 </ion-content>
