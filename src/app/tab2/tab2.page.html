@@ -20,9 +20,9 @@
 
       <ion-select [(ngModel)]="building" (ngModelChange)="buildSelect($event)" name="Building"
         placeholder="Select Building">
-        <ion-select-option value="all">All</ion-select-option>
-        <ion-select-option *ngIf="username !== 'management'" value="myComplaints">My Complaints</ion-select-option>
-        <ion-select-option *ngFor="let i of buildNames" value="i.Building" name="any">{{i.Building}}
+        <ion-select-option [value]="all" name="all">All</ion-select-option>
+        <ion-select-option *ngIf="username !== 'management'" [value]="myComplaints" name="myComplaints">My Complaints</ion-select-option>
+        <ion-select-option *ngFor="let i of buildNames" [value]="i.Building" name="any">{{i.Building}}
         </ion-select-option>
       </ion-select>
 
