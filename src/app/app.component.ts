@@ -68,7 +68,7 @@ export class AppComponent implements OnDestroy {
 
         }
         else if(this.router.url==='/resetpw')
-        { await this.router.navigate(['/login']);
+        { await this.router.navigate(['/tab1']);
 
         }
         
