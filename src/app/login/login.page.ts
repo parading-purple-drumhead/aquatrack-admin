@@ -3,6 +3,8 @@ import { Router, NavigationExtras } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { NavController, AlertController, LoadingController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
+import { Platform } from '@ionic/angular';
+
 import { FCM } from '@ionic-native/fcm/ngx';
 
 @Component({
@@ -15,7 +17,7 @@ export class LoginPage implements OnInit {
   isLoading: boolean;
 
   constructor(private fcm: FCM, private http: HttpClient, private router: Router, private navCtrl: NavController,
-    private storage: Storage, private alert: AlertController, private loadingCtrl: LoadingController) {
+    private storage: Storage, private alert: AlertController, private loadingCtrl: LoadingController,public platform: Platform) {
     this.isLoading = true;
   }
 
@@ -43,22 +45,25 @@ export class LoginPage implements OnInit {
   goToBuildPage(x) {
     const Username = x;
     this.loadingCtrl.dismiss();
-    this.fcm.getToken().then(token => {
-      console.log(token);
-      this.storage.set('fcmToken', token);
-      this.storage.get('user').then((val) => {
-        var Username = val;
-        const data = {
-          Username,
-          token
-        }
-        this.http.post('http://ec2-15-206-171-244.ap-south-1.compute.amazonaws.com:80/firebasetableinsert', data, { responseType: 'text' }).subscribe(
-          rdata => {
-            console.log(rdata);
+
+      this.fcm.getToken().then(token => {
+        console.log(token);
+        this.storage.set('fcmToken', token);
+        this.storage.get('user').then((val) => {
+          var Username = val;
+          const data = {
+            Username,
+            token
           }
-        )
-      })
-    });
+          this.http.post('ec2-15-206-171-244.ap-south-1.compute.amazonaws.com:80/firebasetableinsert', data, { responseType: 'text' }).subscribe(
+            rdata => {
+              console.log(rdata);
+            }
+          )
+        })
+      });
+ 
+
     this.navCtrl.navigateRoot('tabs/tab1');
   }
 
@@ -77,7 +82,7 @@ export class LoginPage implements OnInit {
     console.log(username, password);
     const data = { username, password };
     this.loadingScreen();
-    this.http.post('http://ec2-15-206-171-244.ap-south-1.compute.amazonaws.com:80/login', data, { responseType: 'text' }).subscribe(
+    this.http.post('ec2-15-206-171-244.ap-south-1.compute.amazonaws.com:80/login', data, { responseType: 'text' }).subscribe(
       rdata => {
         if (rdata.indexOf('AccessToken') !== -1) {
           let temp = JSON.parse(rdata);

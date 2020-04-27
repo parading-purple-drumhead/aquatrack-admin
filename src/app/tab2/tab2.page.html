@@ -16,13 +16,13 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <ion-grid>
-    <ion-row>
+    <ion-row> 
 
       <ion-select [(ngModel)]="building" (ngModelChange)="buildSelect($event)" name="Building"
         placeholder="Select Building">
-        <ion-select-option [value]="all" name="all">All</ion-select-option>
-        <ion-select-option *ngIf="username !== 'management'" [value]="myComplaints" name="myComplaints">My Complaints</ion-select-option>
-        <ion-select-option *ngFor="let i of buildNames" [value]="i.Building" name="any">{{i.Building}}
+        <ion-select-option >All</ion-select-option>
+        <ion-select-option *ngIf="username !== 'management'" >My Complaints</ion-select-option>
+        <ion-select-option *ngFor="let i of buildNames" >{{i.Building}}
         </ion-select-option>
       </ion-select>
 

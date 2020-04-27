@@ -4,13 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { CompformPage } from './compform.page';
+
 import { ComponentsModule } from 'src/app/components/components.module';
 
 const routes: Routes = [
   {
-    path: '',
-    component: CompformPage
+
   }
 ];
 
@@ -23,6 +22,6 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [CompformPage]
+  declarations: []
 })
 export class CompformPageModule {}

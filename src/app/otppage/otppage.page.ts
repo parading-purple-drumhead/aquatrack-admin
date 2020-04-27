@@ -39,7 +39,7 @@ export class OtppagePage implements OnInit {
 
   ngOnInit() {
     this.storage.get('username').then((val) => {
-      this.username = val;
+      this.username = val; 
     });
   }
   loginForm: FormGroup;
@@ -58,7 +58,7 @@ export class OtppagePage implements OnInit {
       { type: 'maxlength', message: 'Password should not exceed 15 letters' }
     ],
     'otp': [
-      { type: 'required', message: 'Please enter the Email ID' }
+      { type: 'required', message: 'Please enter the OTP' }
     ]
   }
 

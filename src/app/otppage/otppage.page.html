@@ -17,7 +17,7 @@
               
             </ion-item>
             <div class="error-message">
-              <ng-container *ngFor="let error of error_messages.email"> 
+              <ng-container *ngFor="let error of error_messages.otp"> 
                 <div class="error-message"
                   *ngIf="loginForm.get('otp').hasError(error.type) && (loginForm.get('otp').dirty || loginForm.get('otp').touched)">
                   {{ error.message }}
