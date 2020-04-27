@@ -30,7 +30,10 @@
     <ion-row *ngIf="empty" id="emptyPage">
       <p>No complaints to display</p>
     </ion-row>
-    <div *ngFor="let i of arrayData">
+
+
+    <ion-row>
+      <ion-col *ngFor="let i of arrayData" size="12" size-md="4">
       <ion-card [attr.color]="((username==='management'||username===i.Username)&&(i.Status === '1')) ? 'warning' : ''">
         <ion-card-content>
           <ion-icon *ngIf="username===i.Username" name="close" (click)="delConfirm(i.Building,i.Floor,i.location,i.Complaint)"></ion-icon>
@@ -54,7 +57,8 @@
           <ion-button color="primary" (click)="alertAcknowledge(i.Building,i.Floor,i.location,i.Complaint)" *ngIf="username===i.Username && i.Status === '1'">Acknowledge</ion-button>
         </ion-card-content>
       </ion-card>
-    </div>
+  </ion-col>
+  </ion-row>
     <!-- <ion-list>
       <ion-item-sliding *ngFor="let i of arrayData">
         <ion-item-options side="end">

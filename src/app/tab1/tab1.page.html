@@ -2,10 +2,10 @@
   <ion-toolbar mode="ios">
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
-    </ion-buttons> 
+    </ion-buttons>
     <ion-title>
-      Buildings 
-    </ion-title> 
+      Buildings
+    </ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="openPopOver($event)">
         <ion-icon name="menu"></ion-icon>
@@ -19,25 +19,28 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <ion-grid>
-    <div *ngFor="let i of arrayData">
-      <ion-card (click)="openFloors(i.Building)">
-        <ion-card-content>
-          <ion-row>
-            <ion-col id="col1" size="4">
-              <div id="img-container">
-              <ion-img src="../../assets/building.jpg"></ion-img></div>
+    <ion-row>
+      <ion-col *ngFor="let i of arrayData" size="12" size-md="4">
+        <ion-card (click)="openFloors(i.Building)">
+          <ion-card-content>
+            <ion-row>
+              <ion-col id="col1" size="4">
+                <div id="img-container">
+                  <ion-img src="../../assets/building.jpg"></ion-img>
+                </div>
 
-            </ion-col>
-            <ion-col size="4">
-              {{i.Building}}
-            </ion-col>
-            <ion-col size="4"  style="text-align: end;">
-              {{i.total.toFixed(2)}} L
-            </ion-col>
-          </ion-row>
-        </ion-card-content>
-      </ion-card>
-      <br>
-    </div>
+              </ion-col>
+              <ion-col size="4">
+                {{i.Building}}
+              </ion-col>
+              <ion-col size="4" style="text-align: end;">
+                {{i.total.toFixed(2)}} L
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <br>
   </ion-grid>
 </ion-content>
