@@ -34,7 +34,6 @@ export class Tab2Page implements OnInit {
       console.log(val)
       this.username = val;
       console.log('Username:', this.username);
-      this.showDelete(this.username);
     });
     this.buildinglist();
     this.displayComplaints();
@@ -49,25 +48,6 @@ export class Tab2Page implements OnInit {
       });
   }
 
-  showDelete(username) {
-    console.log(username);
-    const data = {
-      username
-    }
-    this.http.post('http://ec2-15-206-171-244.ap-south-1.compute.amazonaws.com:80/showDelete', data, { responseType: 'text' }).subscribe(
-      rdata => {
-        console.log(rdata);
-        let temp = JSON.parse(rdata);
-        console.log(temp.Show)
-        if (temp.Show === 1) {
-          this.showuser = true;
-        }
-        else {
-          this.showuser = false;
-        }
-      }
-    )
-  }
 
   displayComplaints() {
     this.arrayData = new Array();
@@ -157,84 +137,6 @@ export class Tab2Page implements OnInit {
     );
   }
 
-  async delConfirm(Building, Floor, location, Complaint) {
-    let alert = await this.alert.create({
-      header: 'Confirm Delete',
-      message: 'Are you sure you want to delete the complaint?',
-      buttons: [{
-        text: 'Cancel',
-        role: 'cancel',
-        // handler: (cancel) => {
-        //   console.log('Cancelled');
-        // }
-      },
-      {
-        text: 'Okay',
-        handler: () => {
-          this.del(Building, Floor, location, Complaint);
-        }
-      }
-      ]
-    });
-    await alert.present();
-    let result = await alert.onDidDismiss();
-  }
-
-  del(a, b, c, d) {
-    this.delArray = new Array();
-    var Building = a;
-    var Floor = b;
-    var location = c;
-    var Complaint = d;
-    this.storage.get('user').then((val) => {
-      var username = val;
-      const comp = {
-        Building,
-        Floor,
-        location,
-        Complaint,
-        username // This adds it to the payload
-      };
-      console.log(comp);
-      this.http.post('http://ec2-15-206-171-244.ap-south-1.compute.amazonaws.com:80/delcomplaint', comp, { responseType: 'text' }).subscribe(
-
-        rdata => {
-          console.log(rdata);
-          let temp = JSON.parse(rdata);
-          this.delArray = temp.Complaints;
-          if (this.delArray[0] === '0') {
-            this.errorAlert();
-          }
-          else if (this.delArray[0] === '1') {
-            this.displayComplaints();
-          }
-        }
-      );
-    });
-  }
-
-  async addcomp() {
-    const modal = await this.modal.create({
-      component: CompformPage
-    });
-    await modal.present();
-    modal.onDidDismiss().then(res => this.displayComplaints());
-  }
-
-  logout() {
-    this.navCtrl.navigateRoot('/login');
-  }
-
-  async errorAlert() {
-    const alert = await this.alert.create({
-      header: 'Access Denied',
-      message: 'Sorry, you do not have access to delete complaints',
-      buttons: ['OK']
-    });
-
-    await alert.present();
-  }
-
   doRefresh(event) {
     console.log('Begin async operation');
     setTimeout(() => {
@@ -312,48 +214,5 @@ export class Tab2Page implements OnInit {
     });
     await alert.present();
     let result = await alert.onDidDismiss();
-  }
-
-  async alertAcknowledge(building, floor, location, complaint) {
-    const alert = await this.alert.create({
-      header: 'Confirm Acknowledgement',
-      message: 'Has the job been completed?',
-      buttons: [{
-        text: 'Reject',
-        handler: (cancel) => {
-          console.log('Cancelled');
-          this.confirmAcknowledge(building, floor, location, complaint);
-        }
-      },
-      {
-        text: 'Accept',
-        handler: () => {
-          this.del(building, floor, location, complaint);
-        }
-      }
-      ]
-    });
-    await alert.present();
-    let result = await alert.onDidDismiss();
-  }
-
-  confirmAcknowledge(Building, Floor, location, Complaint) {
-    this.storage.get('user').then((val) => {
-      var username = val;
-      const data = {
-        Building,
-        Floor,
-        location,
-        Complaint,
-        username
-      }
-      console.log(data);
-      this.http.post('http://ec2-15-206-171-244.ap-south-1.compute.amazonaws.com:80/AcknowledgeStudentDenied', data, { responseType: 'text' }).subscribe(
-        rdata => {
-          console.log(rdata);
-          this.displayComplaints();
-        }
-      );
-    });
   }
 }

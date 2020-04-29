@@ -21,7 +21,6 @@
       <ion-select [(ngModel)]="building" (ngModelChange)="buildSelect($event)" name="Building"
         placeholder="Select Building">
         <ion-select-option >All</ion-select-option>
-        <ion-select-option *ngIf="username !== 'management'" >My Complaints</ion-select-option>
         <ion-select-option *ngFor="let i of buildNames" >{{i.Building}}
         </ion-select-option>
       </ion-select>
@@ -34,9 +33,8 @@
 
     <ion-row>
       <ion-col *ngFor="let i of arrayData" size="12" size-md="4">
-      <ion-card [attr.color]="((username==='management'||username===i.Username)&&(i.Status === '1')) ? 'warning' : ''">
+      <ion-card [attr.color]="(i.Status === '1') ? 'warning' : ''">
         <ion-card-content>
-          <ion-icon *ngIf="username===i.Username" name="close" (click)="delConfirm(i.Building,i.Floor,i.location,i.Complaint)"></ion-icon>
           <ion-row>
             <ion-col size="9" id="complaintContents">
               <ion-row>
@@ -53,15 +51,11 @@
             </ion-col>
             <ion-col size="3" id="buildingName">{{i.Building}}</ion-col>
           </ion-row>
-          <ion-button color="primary" (click)="alertJob(i.Building,i.Floor,i.location,i.Complaint,i.Username)" *ngIf="username === 'management'" [attr.disabled]="i.Status === '1'? 'true':'false'">Confirm</ion-button>
-          <ion-button color="primary" (click)="alertAcknowledge(i.Building,i.Floor,i.location,i.Complaint)" *ngIf="username===i.Username && i.Status === '1'">Acknowledge</ion-button>
+          <ion-button color="primary" (click)="alertJob(i.Building,i.Floor,i.location,i.Complaint,i.Username)" [attr.disabled]="i.Status === '1'? 'true':'false'">Confirm</ion-button>
         </ion-card-content>
       </ion-card>
   </ion-col>
   </ion-row>
 
   </ion-grid>
-  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-    <ion-fab-button (click)="addcomp()" *ngIf="username !== 'management'">+</ion-fab-button>
-  </ion-fab>
 </ion-content>

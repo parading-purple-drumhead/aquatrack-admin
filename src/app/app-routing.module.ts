@@ -13,7 +13,6 @@ const routes: Routes = [
   { path: 'tab2', loadChildren: './tab2/tab2.module#Tab2PageModule' },
   { path: 'tab3', loadChildren: './tab3/tab3.module#Tab3PageModule' },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
-  { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
   { path: 'forgotpw', loadChildren: './forgotpw/forgotpw.module#ForgotpwPageModule' },
   { path: 'otppage', loadChildren: './otppage/otppage.module#OtppagePageModule' },
   { path: 'resetpw', loadChildren: './resetpw/resetpw.module#ResetpwPageModule' },
