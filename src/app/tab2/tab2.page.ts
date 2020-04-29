@@ -16,7 +16,7 @@ export class Tab2Page implements OnInit {
 
   toggleStatus: boolean;
 
-  constructor(private fcm: FCM,private http: HttpClient, private router: Router, public navCtrl: NavController, public activeRoute: ActivatedRoute,
+  constructor(private fcm: FCM, private http: HttpClient, private router: Router, public navCtrl: NavController, public activeRoute: ActivatedRoute,
     private storage: Storage, private alert: AlertController, private popover: PopoverController, private modal: ModalController) {
     this.building = "All";
   }
@@ -39,6 +39,14 @@ export class Tab2Page implements OnInit {
     this.buildinglist();
     this.displayComplaints();
     this.empty = 1;
+  }
+
+  checkTime() {
+    const data = {};
+    this.http.post('http://ec2-15-206-171-244.ap-south-1.compute.amazonaws.com:80/checkTime', data, { responseType: 'text' }).subscribe(
+      rdata => {
+        console.log(rdata);
+      });
   }
 
   showDelete(username) {
@@ -149,7 +157,7 @@ export class Tab2Page implements OnInit {
     );
   }
 
-  async delConfirm(Building,Floor,location,Complaint){
+  async delConfirm(Building, Floor, location, Complaint) {
     let alert = await this.alert.create({
       header: 'Confirm Delete',
       message: 'Are you sure you want to delete the complaint?',
@@ -163,7 +171,7 @@ export class Tab2Page implements OnInit {
       {
         text: 'Okay',
         handler: () => {
-          this.del(Building,Floor,location,Complaint);
+          this.del(Building, Floor, location, Complaint);
         }
       }
       ]
@@ -266,15 +274,15 @@ export class Tab2Page implements OnInit {
       const notif = {
         username
       }
-      
+
       this.http.post('http://ec2-15-206-171-244.ap-south-1.compute.amazonaws.com:80/Notification', notif, { responseType: 'text' }).subscribe(
         rdata => {
           console.log(rdata);
         }
-        
+
       );
       this.fcm.onNotification().subscribe(data => {
-        if(data.wasTapped){
+        if (data.wasTapped) {
           this.router.navigate(['/tab2']);
         } else {
           console.log("Received in foreground");
