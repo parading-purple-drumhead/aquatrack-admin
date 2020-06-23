@@ -1,75 +1,73 @@
-ion-button{
+ion-button {
     height: 25px;
     float: right;
 }
 
-ion-icon{
+ion-icon {
     height: 25px !important;
     width: 30px !important;
-  }
-  
-
-ion-fab-button{
-    font-size: 40px;
-
 }
-ion-toolbar{
-    --background:#f5f6f8;
-    }
-    ion-grid{
-       
-        background:#f5f6f8;
-      } 
-    
-    
-    ion-title{
-      color:  #5b86e5;
-      font-family: Gibson;
-      font-size: 26px;
-      font-weight: 600;
-    }
-    
-    ion-buttons{
-      color:#4c5264;
-    }
-ion-icon{
+
+ion-fab-button {
+    font-size: 40px;
+}
+ion-toolbar {
+    --background: #f5f6f8;
+}
+ion-grid {
+    background: #f5f6f8;
+}
+
+ion-title {
+    color: #5b86e5;
+    font-family: Gibson;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+ion-buttons {
+    color: #4c5264;
+}
+ion-icon {
     font-size: 30px;
     float: right;
 }
 
-
-ion-card{
-    background-color: #b22222;
-    border-radius: 15px;
-    color: whitesmoke;
-    box-shadow: 0 8px 15px 0 #e7eaf0;
+ion-card {
+    background-color: #ffffff;
+    border-left: #b22222 8px solid;
+    // border-radius: 15px;
+    color: black;
+    // box-shadow: 0 8px 15px 0 #e7eaf0;
+    padding-bottom: 0.5rem;
 }
 
-#buildingName{
+#buildingName {
     font-size: 30px;
     align-self: center;
 }
 
-#complaintContents{
+#complaintContents {
     font-size: 15px;
+    color: #404040;
 }
 
-ion-col{
+ion-col {
     padding-left: 0px;
     padding-right: 0px;
-} 
+}
 
-#emptyPage{
+#emptyPage {
     justify-content: center;
     flex-grow: 1;
     flex-shrink: 0;
     align-items: center;
 }
 
-ion-grid{
+ion-grid {
     height: 100%;
     width: 100%;
-    display: flex; 
-    flex-flow: column; 
+    display: flex;
+    flex-flow: column;
     padding: 0px;
 }

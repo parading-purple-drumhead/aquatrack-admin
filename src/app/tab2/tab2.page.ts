@@ -6,6 +6,7 @@ import { Storage } from '@ionic/storage';
 import { AppPopOverComponent } from '../app-pop-over/app-pop-over.component';
 import { CompformPage } from './compform/compform.page';
 import { FCM } from '@ionic-native/fcm/ngx';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-tab2',
@@ -17,11 +18,41 @@ export class Tab2Page implements OnInit {
   toggleStatus: boolean;
 
   constructor(private fcm: FCM, private http: HttpClient, private router: Router, public navCtrl: NavController, public activeRoute: ActivatedRoute,
-    private storage: Storage, private alert: AlertController, private popover: PopoverController, private modal: ModalController) {
+    private storage: Storage, private alert: AlertController, private popover: PopoverController, private modal: ModalController, private datepipe: DatePipe) {
     this.building = "All";
   }
 
-  arrayData: Array<Data>
+  // arrayData: Array<Data>
+  arrayData = [
+    {
+      Building: 'UB',
+      Floor: 1,
+      location: 'CB',
+      Complaint: 'Tap leak',
+      Timestamp: this.datepipe.transform(Date.now(),'dd MMM, yy')
+    },
+    {
+      Building: 'UB',
+      Floor: 1,
+      location: 'CB',
+      Complaint: 'Tap leak',
+      Timestamp: this.datepipe.transform(Date.now(),'dd MMM, yy')
+    },
+    {
+      Building: 'UB',
+      Floor: 1,
+      location: 'CB',
+      Complaint: 'Tap leak',
+      Timestamp: this.datepipe.transform(Date.now(),'dd MMM, yy')
+    },
+    {
+      Building: 'UB',
+      Floor: 1,
+      location: 'CB',
+      Complaint: 'Tap leak',
+      Timestamp: this.datepipe.transform(Date.now(),'dd MMM, yy')
+    },
+  ]
   buildNames: Array<Data>
   delArray: Array<String>
   username: string;
@@ -37,7 +68,8 @@ export class Tab2Page implements OnInit {
     });
     this.buildinglist();
     this.displayComplaints();
-    this.empty = 1;
+    // this.empty = 1;
+    this.empty = 0;
   }
 
   checkTime() {
@@ -50,7 +82,7 @@ export class Tab2Page implements OnInit {
 
 
   displayComplaints() {
-    this.arrayData = new Array();
+    // this.arrayData = new Array();
     const data = {
       //Empty payload
     };
@@ -63,7 +95,7 @@ export class Tab2Page implements OnInit {
         }
         else if (temp.Complaints.Complaints !== '') {
           this.empty = 0;
-          this.arrayData = temp.Complaints;
+          // this.arrayData = temp.Complaints;
         }
       }
     );

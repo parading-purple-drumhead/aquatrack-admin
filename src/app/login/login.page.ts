@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationExtras } from '@angular/router';
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { NavController, AlertController, LoadingController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { Platform } from '@ionic/angular';
-
 import { FCM } from '@ionic-native/fcm/ngx';
 
 @Component({
@@ -78,13 +77,29 @@ export class LoginPage implements OnInit {
     console.log(username, password);
     const data = { username, password };
     this.loadingScreen();
-    this.http.post('http://ec2-15-206-171-244.ap-south-1.compute.amazonaws.com:80/login', data, { responseType: 'text' }).subscribe(
+    this.http.post('http://ec2-15-206-171-244.ap-south-1.compute.amazonaws.com:80/loginAfterAdminCreation', data, { responseType: 'text' }).subscribe(
       rdata => {
+        let temp = JSON.parse(rdata);
+        console.log(temp.AuthenticationResult);
+        if(temp.AuthenticationResult === 'Change Password required'){
+          this.router.navigate(['/resetpw']);
+          this.loadingCtrl.dismiss();
+        }
         if (rdata.indexOf('AccessToken') !== -1) {
           let temp = JSON.parse(rdata);
           const AccessToken = temp.AccessToken;
           const RefreshToken = temp.RefreshToken;
           console.log(AccessToken);
+          const email = username;
+          const userEmail = {
+            email
+          } 
+          this.http.post('http://ec2-15-206-171-244.ap-south-1.compute.amazonaws.com:80/getUserInfo',userEmail,{responseType: 'text'}).subscribe(
+            rdata => {
+              const user = JSON.parse(rdata);
+              this.storage.set('adminStatus',user.info[3].Value);
+            }
+          )
           this.storage.set('AccessToken', AccessToken);
           this.storage.set('RefreshToken', RefreshToken);
           this.storage.set('inApp', true);

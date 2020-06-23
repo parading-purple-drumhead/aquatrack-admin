@@ -7,10 +7,11 @@ ion-icon{
 ion-card{
   padding-top: 15px;
   height: 92px;
-  border-radius: 12px;
+  // border-radius: 12px;
   color:#4c5264;
   background-color: white;
-  box-shadow: 0 8px 15px 0 #e7eaf0;
+  // box-shadow: 0 8px 15px 0 #e7eaf0;
+  border-left: #5b86e5 8px solid;
 }
 
 ion-back-button{

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-icon name="close" slot="end" (click)="dismissPage()"></ion-icon>
+    <ion-title>Add users</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <form #form="ngForm" (ngSubmit)="addUser(form)">
+      <br>
+      <ion-card>
+        <ion-item>
+          <ion-icon name="person"></ion-icon>
+          <ion-input type="text" required name="name" placeholder="Name" ngModel></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="mail"></ion-icon>
+          <ion-input type="email" required name="email" placeholder="Email" ngModel>
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Admin Status</ion-label>
+          <ion-checkbox slot="end" name="adminStatus" [(ngModel)]="adminStatus"></ion-checkbox>
+        </ion-item>
+        <ion-button type="submit">Login</ion-button>
+      </ion-card>
+    </form>
+  </div>
+</ion-content>

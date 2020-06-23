@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar mode="ios">
     <ion-title>
-      Admin Page
+      Admin Panel
     </ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="openPopOver($event)">
@@ -11,4 +11,19 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="light"></ion-content>
+<ion-content color="light">
+  <div class="container" id="admins-title">
+    <h3>Admins</h3>
+  </div>
+  <div id="admins-box">
+    <ion-card *ngFor="let user of users" (click)="showUserInfo(user.name,user.email,user.admin)">
+      <ion-card-content>
+        <h2 id="admin-name">{{user.name}}</h2>
+        <p id="admin-email">{{user.email}}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+      <ion-fab-button (click)="addUser()"><ion-icon name="add"></ion-icon></ion-fab-button>
+    </ion-fab>
+</ion-content>

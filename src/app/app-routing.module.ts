@@ -17,7 +17,9 @@ const routes: Routes = [
   { path: 'otppage', loadChildren: './otppage/otppage.module#OtppagePageModule' },
   { path: 'resetpw', loadChildren: './resetpw/resetpw.module#ResetpwPageModule' },
   { path: 'aboutus', loadChildren: './aboutus/aboutus.module#AboutusPageModule' },
-  { path: 'feedback', loadChildren: './feedback/feedback.module#FeedbackPageModule' }, 
+  { path: 'feedback', loadChildren: './feedback/feedback.module#FeedbackPageModule' },   { path: 'add-user', loadChildren: './tab3/add-user/add-user.module#AddUserPageModule' },
+  { path: 'user-info', loadChildren: './tab3/user-info/user-info.module#UserInfoPageModule' },
+
 
 ];
 @NgModule({

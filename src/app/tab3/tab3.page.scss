@@ -1,24 +1,65 @@
-ion-toolbar{
-    --background:#f5f6f8;
-    }
-    ion-grid{
-       
-        background:#f5f6f8;
-      } 
-    
-    
-    ion-title{
-      color:  #5b86e5;
-      font-family: Gibson;
-      font-size: 26px;
-      font-weight: 600;
-    }
-    
-    ion-buttons{
-      color:#4c5264;
-    }
-ion-icon{
-    font-size: 30px;
-    float: right;
+ion-toolbar {
+  --background: #f5f6f8;
+}
+ion-grid {
+  background: #f5f6f8;
 }
 
+ion-title {
+  color: #5b86e5;
+  font-family: Gibson;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+ion-buttons {
+  color: #4c5264;
+}
+
+ion-icon {
+  font-size: 30px;
+  float: right;
+}
+
+ion-card{
+  border-left: #5b86e5 7px solid;
+  margin-bottom: 1rem;
+}
+
+ion-fab{
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  --ion-color-primary: #5b86e5;
+}
+
+.container {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+#admins-title {
+  text-indent: 1rem;
+}
+
+#admins-box {
+  // height: 70%;
+  overflow-x: scroll;
+  overflow-y: scroll;
+}
+
+#admins-buttons {
+  padding-top: 3.5rem;
+}
+
+#admin-button{
+  // border: 1px solid black;
+  padding: 0;
+}
+
+#admin-name{
+  color: black;
+}
+
+#admin-email{
+  color: #575757;
+}

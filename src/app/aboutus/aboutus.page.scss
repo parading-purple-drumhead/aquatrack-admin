@@ -1,0 +1,45 @@
+ion-title {
+    color: #5b86e5;
+    font-family: Gibson;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+ion-toolbar {
+    --background: #f5f6f8;
+}
+
+ion-buttons {
+    color: #4c5264;
+}
+
+ion-icon {
+    height: 25px !important;
+    width: 30px !important;
+}
+
+.para {
+    padding: 50px;
+
+    color: #4c5264;
+    text-align: justify;
+}
+
+ion-content {
+    --background: #f5f6f8;
+}
+
+i {
+    font-size: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: #4c5264;
+}
+@media only screen and (min-width: 800px) {
+    .tree {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}

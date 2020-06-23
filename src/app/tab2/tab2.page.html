@@ -16,14 +16,20 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <ion-grid>
-    <ion-row> 
-
-      <ion-select [(ngModel)]="building" (ngModelChange)="buildSelect($event)" name="Building"
-        placeholder="Select Building">
-        <ion-select-option >All</ion-select-option>
-        <ion-select-option *ngFor="let i of buildNames" >{{i.Building}}
-        </ion-select-option>
-      </ion-select>
+    <ion-row>
+      <ion-col size="3">
+        <ion-select [(ngModel)]="building" (ngModelChange)="buildSelect($event)" name="Building"
+          placeholder="Select Building">
+          <ion-select-option>All</ion-select-option>
+          <ion-select-option *ngFor="let i of buildNames">{{i.Building}}
+          </ion-select-option>
+        </ion-select>
+      </ion-col>
+      <ion-col size="9">
+        <div class="ion-text-end" style="padding-top: 0.5rem; padding-right: 0.5rem;">
+          Issues Resolved: 34
+        </div>
+      </ion-col>
 
     </ion-row>
     <ion-row *ngIf="empty" id="emptyPage">
@@ -33,29 +39,33 @@
 
     <ion-row>
       <ion-col *ngFor="let i of arrayData" size="12" size-md="4">
-      <ion-card [attr.color]="(i.Status === '1') ? 'warning' : ''">
-        <ion-card-content>
-          <ion-row>
-            <ion-col size="9" id="complaintContents">
-              <ion-row>
-                <ion-col size="5">Floor:</ion-col>
-                <ion-col size="7">{{i.Floor}}</ion-col>
-                <br>
-                <ion-col size="5">Room/CB:</ion-col>
-                <ion-col size="7">{{i.location}}</ion-col>
-                <br>
-                <ion-col size="5">Complaint:</ion-col>
-                <ion-col size="7">{{i.Complaint}}</ion-col>
-                <br>
-              </ion-row>
-            </ion-col>
-            <ion-col size="3" id="buildingName">{{i.Building}}</ion-col>
-          </ion-row>
-          <ion-button color="primary" (click)="alertJob(i.Building,i.Floor,i.location,i.Complaint,i.Username)" [attr.disabled]="i.Status === '1'? 'true':'false'">Confirm</ion-button>
-        </ion-card-content>
-      </ion-card>
-  </ion-col>
-  </ion-row>
+        <ion-card [style.border-left]="(i.Status === '1') ? '#2e7d32 8px solid' : ''">
+          <ion-card-content>
+            <ion-row>
+              <ion-col size="9" id="complaintContents">
+                <ion-row>
+                  <ion-col size="5">Floor:</ion-col>
+                  <ion-col size="7">{{i.Floor}}</ion-col>
+                  <br>
+                  <ion-col size="5">Room/CB:</ion-col>
+                  <ion-col size="7">{{i.location}}</ion-col>
+                  <br>
+                  <ion-col size="5">Complaint:</ion-col>
+                  <ion-col size="7">{{i.Complaint}}</ion-col>
+                  <br>
+                  <ion-col size="5">Date Issued:</ion-col>
+                  <ion-col size="7">{{i.Timestamp}}</ion-col>
+                  <br>
+                </ion-row>
+              </ion-col>
+              <ion-col size="3" id="buildingName">{{i.Building}}</ion-col>
+            </ion-row>
+            <ion-button color="primary" (click)="alertJob(i.Building,i.Floor,i.location,i.Complaint,i.Username)"
+              [attr.disabled]="i.Status === '1'? 'true':'false'">Confirm</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
 
   </ion-grid>
 </ion-content>

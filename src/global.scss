@@ -27,3 +27,23 @@
 
 // Custom Google Fonts
 @import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+
+.addUser .modal-wrapper{
+    // --height: 33%;
+    // --width: 90%;
+    // --border-radius: 10px;
+    // --position: absolute;
+    // background: rgb(0,0,0,0.5);
+    height: 33%;
+   top: 67%;
+   position: absolute; 
+   display: block;  
+}
+
+.userInfo .modal-wrapper{
+    --height: 28%;
+    --width: 90%;
+    --border-radius: 10px;
+    --position: absolute;
+    background: rgb(0,0,0,0.5);
+}
