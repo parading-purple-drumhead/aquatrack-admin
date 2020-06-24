@@ -40,8 +40,10 @@ export class FloorsPage implements OnInit {
   data: any;
   temp: any;
   getValue: any;
-  test1: Array<Data>;
-  test2: Array<Data>;
+  // test1: Array<Data>;
+  test1 = [1,2,3,4]
+  test2 = [234,186,124,296]
+  // test2: Array<Data>;
   manfrom: Date;
   manto: Date;
   Building: any;
@@ -59,12 +61,13 @@ export class FloorsPage implements OnInit {
       this.Building = building;
       this.displayFloors(this.Building,from,to);
     });
+    this.createBarChart();
   }
 
   displayFloors(Building,from,to){
     // this.arrayData = new Array();
-    this.test1 = new Array();
-    this.test2 = new Array();
+    // this.test1 = new Array();
+    // this.test2 = new Array();
     const data = {
       from,
       to,

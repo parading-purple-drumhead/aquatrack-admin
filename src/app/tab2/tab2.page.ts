@@ -35,7 +35,8 @@ export class Tab2Page implements OnInit {
       Floor: 1,
       location: 'CB',
       Complaint: 'Tap leak',
-      Timestamp: this.datepipe.transform(Date.now(),'dd MMM, yy')
+      Timestamp: this.datepipe.transform(Date.now(),'dd MMM, yy'),
+      Status: '1'
     },
     {
       Building: 'UB',

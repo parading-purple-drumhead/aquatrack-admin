@@ -42,8 +42,10 @@ export class TapsPage implements OnInit {
   getBuilding: any;
   getFloor: any;
   getValue: any;
-  test1: Array<Data>;
-  test2: Array<Data>;
+  // test1: Array<Data>;
+  test1 = [1,2,3,4];
+  // test2: Array<Data>;
+  test2 = [57,36,42,23]
   manfrom: Date;
   manto: Date;
   Building: any;
@@ -68,12 +70,13 @@ export class TapsPage implements OnInit {
       this.Floor = floor;
       this.displayTaps(this.Building,this.Floor,from,to);
     });
+    this.createBarChart();
   }
 
   displayTaps(Building,Floor,from,to){
     // this.arrayData = new Array();
-    this.test1 = new Array();
-    this.test2 = new Array();
+    // this.test1 = new Array();
+    // this.test2 = new Array();
     const data = {
       Building,
       Floor,
