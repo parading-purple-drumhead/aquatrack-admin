@@ -24,16 +24,16 @@
         <ion-card (click)="openFloors(i.Building)">
           <ion-card-content>
             <ion-row>
-              <ion-col id="col1" size="4">
+              <ion-col id="col1" size="2">
                 <div id="img-container">
-                  <ion-img src="../../assets/building.jpg"></ion-img>
+                  <ion-img src="../../assets/building.jpg" style="height: 2.5rem;"></ion-img>
                 </div>
 
               </ion-col>
               <ion-col size="4">
                 {{i.Building}}
               </ion-col>
-              <ion-col size="4" style="text-align: end;">
+              <ion-col size="6" style="text-align: end;">
                 {{i.total.toFixed(2)}} L
               </ion-col>
             </ion-row>

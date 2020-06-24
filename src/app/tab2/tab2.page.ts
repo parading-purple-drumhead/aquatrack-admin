@@ -4,7 +4,6 @@ import { ActivatedRoute, Router, Data } from '@angular/router';
 import { NavController, AlertController, PopoverController, ModalController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { AppPopOverComponent } from '../app-pop-over/app-pop-over.component';
-import { CompformPage } from './compform/compform.page';
 import { FCM } from '@ionic-native/fcm/ngx';
 import { DatePipe } from '@angular/common';
 

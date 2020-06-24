@@ -18,7 +18,25 @@ export class TapsPage implements OnInit {
   bars: any;
   colorArray: any;
 
-  arrayData: Array<Data>;
+  // arrayData: Array<Data>;
+  arrayData = [
+    {
+      tap_id: 1,
+      total: 57
+    },
+    {
+      tap_id: 2,
+      total: 36
+    },
+    {
+      tap_id: 3,
+      total: 42
+    },
+    {
+      tap_id: 4,
+      total: 23
+    },
+  ];
   data: any;
   temp: any;
   getBuilding: any;
@@ -53,7 +71,7 @@ export class TapsPage implements OnInit {
   }
 
   displayTaps(Building,Floor,from,to){
-    this.arrayData = new Array();
+    // this.arrayData = new Array();
     this.test1 = new Array();
     this.test2 = new Array();
     const data = {

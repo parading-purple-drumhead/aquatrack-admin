@@ -18,7 +18,25 @@ export class FloorsPage implements OnInit {
   bars: any;
   colorArray: any;
 
-  arrayData: Array<Data>;
+  // arrayData: Array<Data>;
+  arrayData = [
+    {
+      Floor: 1,
+      total: 234,
+    },
+    {
+      Floor: 2,
+      total: 186,
+    },
+    {
+      Floor: 3,
+      total: 124,
+    },
+    {
+      Floor: 4,
+      total: 296,
+    },
+  ]
   data: any;
   temp: any;
   getValue: any;
@@ -44,7 +62,7 @@ export class FloorsPage implements OnInit {
   }
 
   displayFloors(Building,from,to){
-    this.arrayData = new Array();
+    // this.arrayData = new Array();
     this.test1 = new Array();
     this.test2 = new Array();
     const data = {

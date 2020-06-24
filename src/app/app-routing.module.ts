@@ -7,7 +7,6 @@ const routes: Routes = [
   { path: '', loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule), canActivate: [AuthGuardService]},
   { path: 'floors', loadChildren: './tab1/floors/floors.module#FloorsPageModule' },
   { path: 'taps', loadChildren: './tab1/floors/taps/taps.module#TapsPageModule' },
-  { path: 'compform', loadChildren: './tab2/compform/compform.module#CompformPageModule' }, 
   // { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },
   { path: 'tab1', loadChildren: './tab1/tab1.module#Tab1PageModule' },
   { path: 'tab2', loadChildren: './tab2/tab2.module#Tab2PageModule' },
@@ -17,7 +16,8 @@ const routes: Routes = [
   { path: 'otppage', loadChildren: './otppage/otppage.module#OtppagePageModule' },
   { path: 'resetpw', loadChildren: './resetpw/resetpw.module#ResetpwPageModule' },
   { path: 'aboutus', loadChildren: './aboutus/aboutus.module#AboutusPageModule' },
-  { path: 'feedback', loadChildren: './feedback/feedback.module#FeedbackPageModule' },   { path: 'add-user', loadChildren: './tab3/add-user/add-user.module#AddUserPageModule' },
+  { path: 'feedback', loadChildren: './feedback/feedback.module#FeedbackPageModule' },   
+  { path: 'add-user', loadChildren: './tab3/add-user/add-user.module#AddUserPageModule' },
   { path: 'user-info', loadChildren: './tab3/user-info/user-info.module#UserInfoPageModule' },
 
 

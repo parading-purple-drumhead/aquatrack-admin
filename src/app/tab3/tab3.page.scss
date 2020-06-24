@@ -1,6 +1,7 @@
 ion-toolbar {
   --background: #f5f6f8;
 }
+
 ion-grid {
   background: #f5f6f8;
 }
@@ -37,10 +38,6 @@ ion-fab{
   padding-right: 2rem;
 }
 
-#admins-title {
-  text-indent: 1rem;
-}
-
 #admins-box {
   // height: 70%;
   overflow-x: scroll;
@@ -52,7 +49,6 @@ ion-fab{
 }
 
 #admin-button{
-  // border: 1px solid black;
   padding: 0;
 }
 

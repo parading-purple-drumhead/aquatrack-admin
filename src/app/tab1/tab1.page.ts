@@ -14,7 +14,21 @@ import { AppPopOverComponent } from '../app-pop-over/app-pop-over.component';
 export class Tab1Page implements OnInit{
 
 
-  arrayData: Array<Data>;
+  // arrayData: Array<Data>;
+  arrayData = [
+    {
+      Building: 'UB',
+      total: 1423
+    },
+    {
+      Building: 'TP',
+      total: 1786
+    },
+    {
+      Building: 'BEL',
+      total: 1398
+    },
+  ]
   user: any;
   AccessToken: any;
 
@@ -26,7 +40,7 @@ export class Tab1Page implements OnInit{
   }
 
   displayBuildings(){
-    this.arrayData = new Array();
+    // this.arrayData = new Array();
     const data = {
        // This adds it to the payload
      }; 

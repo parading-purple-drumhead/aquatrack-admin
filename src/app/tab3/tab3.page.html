@@ -12,11 +12,11 @@
 </ion-header>
 
 <ion-content color="light">
-  <div class="container" id="admins-title">
+  <div class="container">
     <h3>Admins</h3>
   </div>
   <div id="admins-box">
-    <ion-card *ngFor="let user of users" (click)="showUserInfo(user.name,user.email,user.admin)">
+    <ion-card *ngFor="let user of users" (click)="showUserInfo(user.name,user.email,user.admin)" style="margin-bottom: 1.5rem;">
       <ion-card-content>
         <h2 id="admin-name">{{user.name}}</h2>
         <p id="admin-email">{{user.email}}</p>

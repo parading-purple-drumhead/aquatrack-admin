@@ -19,66 +19,57 @@
 
   <ion-grid>
     <ion-row>
-<ion-col size="12" size-md="6">
-  
-  <ion-card class="welcome-card">
-    <ion-card-header>
-      <ion-card-title>{{this.getValue}}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <canvas #barChart></canvas>
-      <ion-item>
-        <ion-label>From</ion-label>
-        <ion-datetime min="1990" max="2099"
-          dayShortNames="customDayShortNames"
-          displayFormat="HH:mm, DD MMM, YY"
-          monthShortNames="Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"
-          [(ngModel)] = "manfrom"></ion-datetime>
-      </ion-item>
-      <ion-item>
-        <ion-label>To</ion-label> 
-        <ion-datetime min="1990" max="2099"
-          dayShortNames="customDayShortNames"
-          displayFormat="HH:mm, DD MMM, YY"
-          monthShortNames="Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"
-          [(ngModel)] = "manto"></ion-datetime>
-      </ion-item>
-      <br>
-      <ion-button (click)="toggle()">Submit</ion-button>
-    </ion-card-content>
-  </ion-card>
-</ion-col> 
-<ion-col size="12" size-md="6">
-  <ion-grid>
+      <ion-col size="12" size-md="6">
 
-      <ion-row>
-        <ion-col *ngFor="let i of arrayData" size="12" size-md="6">
-      <ion-card id="card1">
-        <ion-card-content id="card-content">
+        <ion-card style="background-color:white">
+          <ion-card-header>
+            <ion-card-title>Floor {{this.getFloor}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <canvas #barChart></canvas>
+            <ion-item>
+              <ion-label>From</ion-label>
+              <ion-datetime min="1990" max="2099" dayShortNames="customDayShortNames" displayFormat="HH:mm, DD MMM, YY"
+                monthShortNames="Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec" [(ngModel)]="manfrom">
+              </ion-datetime>
+            </ion-item>
+            <ion-item>
+              <ion-label>To</ion-label>
+              <ion-datetime min="1990" max="2099" dayShortNames="customDayShortNames" displayFormat="HH:mm, DD MMM, YY"
+                monthShortNames="Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec" [(ngModel)]="manto">
+              </ion-datetime>
+            </ion-item>
+            <br>
+            <ion-button (click)="toggle()">Submit</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="6">
+        <ion-grid>
           <ion-row>
-            <ion-col id="col1" size="4">
-              <div id="img-container">
-              <ion-img src="../../assets/tap.jpg"></ion-img></div>
-
-            </ion-col>
-            <ion-col size="4">
-              Tap {{i.tap_id}}
-            </ion-col>
-            <ion-col size="4"  style="text-align: end;">
-              {{i.total.toFixed(2)}} L
+            <ion-col *ngFor="let i of arrayData" size="12" size-md="6">
+              <ion-card id="card1">
+                <ion-card-content id="card-content">
+                  <ion-row>
+                    <ion-col id="col1" size="2">
+                      <div id="img-container">
+                        <ion-img src="../../assets/tap.jpg" style="height: 2rem;"></ion-img>
+                      </div>
+                    </ion-col>
+                    <ion-col size="4">
+                      Tap {{i.tap_id}}
+                    </ion-col>
+                    <ion-col size="6" style="text-align: end;">
+                      {{i.total.toFixed(2)}} L
+                    </ion-col>
+                  </ion-row>
+                </ion-card-content>
+              </ion-card>
             </ion-col>
           </ion-row>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
+          <br>
+        </ion-grid>
+      </ion-col>
     </ion-row>
-      <br>
-
   </ion-grid>
-</ion-col>
-</ion-row>
-</ion-grid>
-  <!-- <ion-list *ngFor="let i of arrayData">
-   <ion-item><ion-col>Tap {{i.tap_id}}</ion-col><ion-col>{{i.total.toFixed(2)}} Litres</ion-col></ion-item>
-  </ion-list> -->
 </ion-content>

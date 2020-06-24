@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>{{this.getValue}}</ion-title> 
+    <ion-title>{{this.getValue}}</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="openPopOver($event)">
         <ion-icon name="menu"></ion-icon>
@@ -16,77 +16,57 @@
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-<ion-grid>
-  <ion-row>
-    <ion-col size="12" size-md="6">
-
-  
- 
-  <ion-card class="welcome-card">
-    <ion-card-header>
-      <ion-card-title>{{this.getValue}}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      
-        
-         
-      <canvas #barChart height="200"></canvas>
-    
-    
-      <ion-item>
-        <ion-label>From</ion-label>
-        <ion-datetime min="1990" max="2099"
-          dayShortNames="customDayShortNames"
-          displayFormat="HH:mm, DD MMM YY"
-          monthShortNames="Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"
-          [(ngModel)] = "manfrom"></ion-datetime>
-      </ion-item>
-      <ion-item>
-        <ion-label>To</ion-label> 
-        <ion-datetime min="1990" max="2099"
-          dayShortNames="customDayShortNames"
-          displayFormat="HH:mm, DD MMM, YY"
-          monthShortNames="Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"
-          [(ngModel)] = "manto"></ion-datetime>
-      </ion-item>
-      <ion-button style="margin-top: 3%;" (click)="toggle()">Submit</ion-button>
-    
-    
-    
-      
-    </ion-card-content>
-  </ion-card>
-</ion-col>
-<ion-col size="12" size-md="6">
   <ion-grid>
-      <ion-row>
-        <ion-col *ngFor="let i of arrayData" size="12" size-md="6">     
-      <ion-card id="card1" (click)="openTaps(i.Building,i.Floor)">
-        <ion-card-content id="card-content">
+    <ion-row>
+      <ion-col size="12" size-md="6">
+        <ion-card style="background-color: white;">
+          <ion-card-header>
+            <ion-card-title>{{this.getValue}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <canvas #barChart height="200"></canvas>
+            <ion-item>
+              <ion-label>From</ion-label>
+              <ion-datetime min="1990" max="2099" dayShortNames="customDayShortNames" displayFormat="HH:mm, DD MMM YY"
+                monthShortNames="Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec" [(ngModel)]="manfrom">
+              </ion-datetime>
+            </ion-item>
+            <ion-item>
+              <ion-label>To</ion-label>
+              <ion-datetime min="1990" max="2099" dayShortNames="customDayShortNames" displayFormat="HH:mm, DD MMM, YY"
+                monthShortNames="Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec" [(ngModel)]="manto">
+              </ion-datetime>
+            </ion-item>
+            <ion-button style="margin-top: 3%;" (click)="toggle()">Submit</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="6">
+        <ion-grid>
           <ion-row>
-            <ion-col id="col1" size="4">
-              <div id="img-container">
-              <ion-img src="../../assets/floor.jpg"></ion-img></div>
-
-            </ion-col>
-            <ion-col size="4">
-              Floor {{i.Floor}}
-            </ion-col>
-            <ion-col size="4"  style="text-align: end;">
-              {{i.total.toFixed(2)}} L
+            <ion-col *ngFor="let i of arrayData" size="12" size-md="6">
+              <ion-card id="card1" (click)="openTaps(i.Building,i.Floor)">
+                <ion-card-content id="card-content">
+                  <ion-row>
+                    <ion-col id="col1" size="2">
+                      <div id="img-container">
+                        <ion-img src="../../assets/floor.jpg" style="height: 2rem;"></ion-img>
+                      </div>
+                    </ion-col>
+                    <ion-col size="4">
+                      Floor {{i.Floor}}
+                    </ion-col>
+                    <ion-col size="6" style="text-align: end;">
+                      {{i.total.toFixed(2)}} L
+                    </ion-col>
+                  </ion-row>
+                </ion-card-content>
+              </ion-card>
             </ion-col>
           </ion-row>
-        </ion-card-content>
-      </ion-card>
-    </ion-col> 
+          <br>
+        </ion-grid>
+      </ion-col>
     </ion-row>
-    <br>
   </ion-grid>
-</ion-col>
-</ion-row>
-</ion-grid>
-
-<!-- <ion-list *ngFor="let i of arrayData">
-  <ion-item (click)="openTaps(i.Building,i.Floor)"><ion-col>Floor {{i.Floor}}</ion-col><ion-col>{{i.total.toFixed(2)}} Litres</ion-col></ion-item>
-</ion-list> -->
 </ion-content>
